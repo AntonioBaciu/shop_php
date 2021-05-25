@@ -40,7 +40,6 @@ if (isset($_GET["food"]) && $_GET["food"] == 0) {
     ];
 }
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $alerts = [];
@@ -92,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //MAKE SURE THEY ACTUALLY ORDERED SOMETHING
 
     $checked = [];
-
+    $delivery = $products[5];
 
     if (!empty($_POST["products"])) {
         $checked = $_POST["products"];
@@ -106,7 +105,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($alerts) && empty($errors)) {
         echo ("<div class='alert alert-success text-center' role='alert'><h4 class='alert-heading'>Hooray!</h4>
            <p>You've successfully placed your order! Please check your mailbox.</p></div>");
-        header("Location: " . $_SERVER['REQUEST_URI']);
     }
 }
 
